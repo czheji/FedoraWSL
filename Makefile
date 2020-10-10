@@ -43,9 +43,9 @@ rootfs: base.tar
 
 base.tar:
 	@echo -e '\e[1;31mExporting base.tar using docker...\e[m'
-	docker run --name fedorawsl library/fedora:32 /bin/bash -c "dnf update -y; rpm -e --nodeps sudo; dnf clean all; pwconv; grpconv; chmod 0744 /etc/shadow; chmod 0744 /etc/gshadow;"
+	docker run --name fedorawsl library/fedora:33 /bin/bash -c "dnf update -y; dnf install -y systemd wget binutils xz daemonize dotnet-runtime-3.1; dnf clean all; cd /tmp; wget https://github.com/arkane-systems/genie/releases/download/1.28/systemd-genie_1.28_amd64.deb; ar x systemd-genie_1.28_amd64.deb; mv data.tar.xz /; cd /; tar xJf data.tar.xz; rm -rf data.tar.xz; rm -rf /tmp/*; pwconv; grpconv; "
 	docker export --output=base.tar fedorawsl
-	docker rm -f fedorawsl
+	docker rm -f fedorawsl 
 
 clean:
 	@echo -e '\e[1;31mCleaning files...\e[m'
