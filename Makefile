@@ -1,9 +1,9 @@
-OUT_ZIP=Fedora32.zip
-LNCR_EXE=Fedora32.exe
+OUT_ZIP=Fedora33-Beta.zip
+LNCR_EXE=Fedora33-Beta.exe
 
 DLR=curl
 DLR_FLAGS=-L
-LNCR_ZIP_URL=https://github.com/yuk7/wsldl/releases/download/20040300/icons.zip
+LNCR_ZIP_URL=https://github.com/yuk7/wsldl/releases/download/20100500/icons.zip
 LNCR_ZIP_EXE=Fedora.exe
 
 all: $(OUT_ZIP)
